@@ -31,7 +31,6 @@ namespace CalculaFinanceiro.API
 
             app.UseSwagger();
             app.UseSwaggerUI(sgu => { sgu.SwaggerEndpoint("/swagger/v1/swagger.json", "Calculo Financeiro V1"); });
-            app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
