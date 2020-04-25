@@ -13,9 +13,9 @@ namespace CalculaFinanceiro.TestesDeUnidade.Apresentacao
             const string nomeDoUsuario = "vhpribeiro";
             const string nomeDoRepositorio = "Cervejaria";
             const string linkEsperado = "https://github.com/vhpribeiro/Cervejaria";
-            var comunicacaoComOGithub = new Mock<IComunicacaoComServicoDeRepositorios>();
-            var consultaDeRepositorios = new ConsultaDeRepositorios(comunicacaoComOGithub.Object);
-            comunicacaoComOGithub.Setup(c => c.ObterUrlDoRepositorio(nomeDoUsuario, nomeDoRepositorio))
+            var comunicacaoComOServicoDeRepositorios = new Mock<IComunicacaoComServicoDeRepositorios>();
+            var consultaDeRepositorios = new ConsultaDeRepositorios(comunicacaoComOServicoDeRepositorios.Object);
+            comunicacaoComOServicoDeRepositorios.Setup(c => c.ObterUrlDoRepositorio(nomeDoUsuario, nomeDoRepositorio))
                 .Returns(linkEsperado);
 
             var linkObtido = consultaDeRepositorios.ObterLinkDoRepositorio();

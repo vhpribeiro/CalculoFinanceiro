@@ -9,7 +9,7 @@ namespace CalculaFinanceiro.API.ConfiguracaoDeInicializacao
     {
         public static void Configurar(IServiceCollection services)
         {
-            services.AddScoped<IComunicacaoComServicoDeRepositorios, ComunicacaoComGithub>();
+            services.AddScoped<IComunicacaoComServicoDeRepositorios, ComunicacaoComOGithub>();
             services.AddScoped<IComunicacaoComServicoDeTaxaDeJuros, ComunicacaoComServicoDeTaxaDeJuros>();
             services.AddScoped<ICalculoDeJurosCompostos, CalculoDeJurosComposto>();
             services.AddScoped<IConsultaDeRepositorios, ConsultaDeRepositorios>();

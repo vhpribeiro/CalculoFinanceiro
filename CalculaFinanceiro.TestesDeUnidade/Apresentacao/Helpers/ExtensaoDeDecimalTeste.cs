@@ -3,7 +3,7 @@ using Xunit;
 
 namespace CalculaFinanceiro.TestesDeUnidade.Apresentacao.Helpers
 {
-    public class ExtensaoDeDoubleTeste
+    public class ExtensaoDeDecimalTeste
     {
         [Theory]
         [InlineData(105.6598, 1, 105.6)]

@@ -4,16 +4,16 @@ namespace CalculoFinanceiro.Aplicacao
 {
     public class ConsultaDeRepositorios : IConsultaDeRepositorios
     {
-        private readonly IComunicacaoComServicoDeRepositorios _comunicacaoComGithub;
+        private readonly IComunicacaoComServicoDeRepositorios _comunicacaoComServicoDeRepositorios;
         private static string NomeDoUsuario => "vhpribeiro";
         private static string NomeDoRepositorio => "Cervejaria";
 
-        public ConsultaDeRepositorios(IComunicacaoComServicoDeRepositorios comunicacaoComGithub)
+        public ConsultaDeRepositorios(IComunicacaoComServicoDeRepositorios comunicacaoComServicoDeRepositorios)
         {
-            _comunicacaoComGithub = comunicacaoComGithub;
+            _comunicacaoComServicoDeRepositorios = comunicacaoComServicoDeRepositorios;
         }
 
         public string ObterLinkDoRepositorio() =>
-            _comunicacaoComGithub.ObterUrlDoRepositorio(NomeDoUsuario, NomeDoRepositorio);
+            _comunicacaoComServicoDeRepositorios.ObterUrlDoRepositorio(NomeDoUsuario, NomeDoRepositorio);
     }
 }

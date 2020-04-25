@@ -1,12 +1,11 @@
-﻿using CalculoFinanceiro.Aplicacao;
+﻿using CalculoFinanceiro.Aplicacao.Comunicacoes;
 using CalculoFinanceiro.Aplicacao.Dtos;
 using CalculoFinanceiro.Infra.HttpRequest;
 using System.Net.Http;
-using CalculoFinanceiro.Aplicacao.Comunicacoes;
 
 namespace CalculoFinanceiro.Infra.Comunicacoes
 {
-    public class ComunicacaoComGithub : IComunicacaoComServicoDeRepositorios
+    public class ComunicacaoComOGithub : IComunicacaoComServicoDeRepositorios
     {
         private static string UrlBase => "https://api.github.com/repos/";
         public string ObterUrlDoRepositorio(string nomeDoUsuario, string nomeDoRepositorio)

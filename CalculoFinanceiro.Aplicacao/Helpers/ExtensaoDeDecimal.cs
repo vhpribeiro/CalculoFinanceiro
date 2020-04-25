@@ -2,7 +2,7 @@
 
 namespace CalculoFinanceiro.Aplicacao.Helpers
 {
-    public static class ExtensaoDeDouble
+    public static class ExtensaoDeDecimal
     {
         public static decimal Truncar(this decimal valorParaSerTruncado, int quantidadeDeCasasParaTruncar)
         {
