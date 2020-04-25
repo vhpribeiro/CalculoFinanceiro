@@ -18,14 +18,6 @@ namespace CalculaFinanceiro.API.Controllers
         }
 
         [HttpGet]
-        [Route("taxaJuros")]
-        public IActionResult ObterTaxaDeJuros()
-        {
-            const double taxaDeJuros = 0.01;
-            return Ok(taxaDeJuros);
-        }
-
-        [HttpGet]
         [Route("calculajuros")]
         public IActionResult ObterValorDoJuros(decimal valorInicial, int meses)
         {
