@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5E3CFD94-98B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apresentacao", "Apresentacao", "{5364F283-FCA2-41FD-BCFC-EFC07988D7AB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculaFinanceiro.API", "CalculaFinanceiro.API\CalculaFinanceiro.API.csproj", "{90C67566-A7CC-4BEC-B5FC-1F8CE5B47482}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JurosCompostos.API", "CalculaFinanceiro.API\JurosCompostos.API.csproj", "{90C67566-A7CC-4BEC-B5FC-1F8CE5B47482}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aplicacao", "Aplicacao", "{C525FF8B-749A-4B33-B222-93A1324E121B}"
 EndProject
