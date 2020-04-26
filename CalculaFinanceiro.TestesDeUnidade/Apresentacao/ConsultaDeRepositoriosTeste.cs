@@ -16,8 +16,8 @@ namespace CalculaFinanceiro.TestesDeUnidade.Apresentacao
         public ConsultaDeRepositoriosTeste()
         {
             _nomeDoUsuario = "vhpribeiro";
-            _nomeDoRepositorio = "Cervejaria";
-            _linkEsperado = "https://github.com/vhpribeiro/Cervejaria";
+            _nomeDoRepositorio = "CalculoFinanceiro";
+            _linkEsperado = "https://github.com/vhpribeiro/CalculoFinanceiro";
             _comunicacaoComOServicoDeRepositorios = new Mock<IComunicacaoComServicoDeRepositorios>();
             _consultaDeRepositorios = new ConsultaDeRepositorios(_comunicacaoComOServicoDeRepositorios.Object);
             _comunicacaoComOServicoDeRepositorios.Setup(c => c.ObterUrlDoRepositorio(_nomeDoUsuario, _nomeDoRepositorio))

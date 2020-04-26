@@ -19,7 +19,7 @@ namespace CalculoFinanceiro.TesteDeIntegracao.JurosCompostosAPI
         [Fact]
         public async Task Deve_conseguir_obter_link_do_repositorio()
         {
-            const string resultadoEsperado = "https://github.com/vhpribeiro/Cervejaria";
+            const string resultadoEsperado = "https://github.com/vhpribeiro/CalculoFinanceiro";
             const string url = "http://localhost:9000/juros/showmethecode";
             
             var resposta = await _cliente.GetAsync(url);

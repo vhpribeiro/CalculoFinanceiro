@@ -6,7 +6,7 @@ namespace CalculoFinanceiro.Aplicacao
     {
         private readonly IComunicacaoComServicoDeRepositorios _comunicacaoComServicoDeRepositorios;
         private static string NomeDoUsuario => "vhpribeiro";
-        private static string NomeDoRepositorio => "Cervejaria";
+        private static string NomeDoRepositorio => "CalculoFinanceiro";
 
         public ConsultaDeRepositorios(IComunicacaoComServicoDeRepositorios comunicacaoComServicoDeRepositorios)
         {
