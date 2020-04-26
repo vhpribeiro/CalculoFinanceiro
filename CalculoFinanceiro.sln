@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculoFinanceiro.Infra", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculoFinanceiro.TesteDeIntegracao", "CalculoFinanceiro.TesteDeIntegracao\CalculoFinanceiro.TesteDeIntegracao.csproj", "{7CA36EE9-B5A1-4A48-A4A8-CCFAF0E188D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxaDeJuros.API", "TaxaDeJuros.API\TaxaDeJuros.API.csproj", "{5E195427-7CB1-4103-982E-AC15937153E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxaDeJuros.API", "TaxaDeJuros.API\TaxaDeJuros.API.csproj", "{5E195427-7CB1-4103-982E-AC15937153E6}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C1F262AB-4AF8-4BD2-956E-3500AE8A2E26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{5E195427-7CB1-4103-982E-AC15937153E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E195427-7CB1-4103-982E-AC15937153E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E195427-7CB1-4103-982E-AC15937153E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1F262AB-4AF8-4BD2-956E-3500AE8A2E26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1F262AB-4AF8-4BD2-956E-3500AE8A2E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1F262AB-4AF8-4BD2-956E-3500AE8A2E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1F262AB-4AF8-4BD2-956E-3500AE8A2E26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

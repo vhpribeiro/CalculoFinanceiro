@@ -7,16 +7,18 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["CalculaFinanceiro.API/CalculaFinanceiro.API.csproj", "CalculaFinanceiro.API/"]
-RUN dotnet restore "CalculaFinanceiro.API/CalculaFinanceiro.API.csproj"
+COPY ["CalculaFinanceiro.API/JurosCompostos.API.csproj", "CalculaFinanceiro.API/"]
+COPY ["CalculoFinanceiro.Infra/CalculoFinanceiro.Infra.csproj", "CalculoFinanceiro.Infra/"]
+COPY ["CalculoFinanceiro.Aplicacao/CalculoFinanceiro.Aplicacao.csproj", "CalculoFinanceiro.Aplicacao/"]
+RUN dotnet restore "CalculaFinanceiro.API/JurosCompostos.API.csproj"
 COPY . .
 WORKDIR "/src/CalculaFinanceiro.API"
-RUN dotnet build "CalculaFinanceiro.API.csproj" -c Release -o /app/build
+RUN dotnet build "JurosCompostos.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "CalculaFinanceiro.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "JurosCompostos.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "CalculaFinanceiro.API.dll"]
+ENTRYPOINT ["dotnet", "JurosCompostos.API.dll"]

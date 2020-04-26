@@ -6,7 +6,7 @@ namespace CalculoFinanceiro.Infra.Comunicacoes
 {
     public class ComunicacaoComServicoDeTaxaDeJuros : IComunicacaoComServicoDeTaxaDeJuros
     {
-        private static string UrlBase => "http://localhost:8000/taxadejuros";
+        private static string UrlBase => "http://taxadejuros/taxadejuros";
         public double ObterTaxaDeJuros()
         {
             var url = UrlBase + "/taxajuros";
