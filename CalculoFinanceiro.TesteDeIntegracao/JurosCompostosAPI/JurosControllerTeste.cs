@@ -1,7 +1,5 @@
 ﻿using CalculaFinanceiro.API;
 using CalculoFinanceiro.Infra.HttpRequest;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.TestHost;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -9,16 +7,13 @@ using Xunit;
 
 namespace CalculoFinanceiro.TesteDeIntegracao.JurosCompostosAPI
 {
-    public class JurosControllerTeste
+    public class JurosControllerTeste : IClassFixture<SetupParaTesteDeIntegracao<Startup>>
     {
         private readonly HttpClient _cliente;
 
-        public JurosControllerTeste()
+        public JurosControllerTeste(SetupParaTesteDeIntegracao<Startup> setupParaTesteDeIntegracao)
         {
-            var servidor = new TestServer(new WebHostBuilder()
-                .UseEnvironment("Development")
-                .UseStartup<Startup>());
-            _cliente = servidor.CreateClient();
+            _cliente = setupParaTesteDeIntegracao.WebApplicationFactory.CreateClient();
         }
 
         [Fact]

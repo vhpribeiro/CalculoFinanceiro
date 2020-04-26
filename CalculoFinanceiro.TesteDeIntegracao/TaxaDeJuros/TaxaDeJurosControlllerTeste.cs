@@ -1,30 +1,18 @@
-﻿using System.IO;
-using CalculoFinanceiro.Infra.HttpRequest;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.TestHost;
+﻿using CalculoFinanceiro.Infra.HttpRequest;
 using System.Net;
 using System.Net.Http;
-using Microsoft.Extensions.PlatformAbstractions;
 using TaxaDeJuros.API;
 using Xunit;
 
 namespace CalculoFinanceiro.TesteDeIntegracao.TaxaDeJuros
 {
-    public class TaxaDeJurosControlllerTeste
+    public class TaxaDeJurosControlllerTeste : IClassFixture<SetupParaTesteDeIntegracao<Startup>>
     {
         private readonly HttpClient _cliente;
 
-        public TaxaDeJurosControlllerTeste()
-        {
-            var testProjectPath = PlatformServices.Default.Application.ApplicationBasePath;
-            var relativePathToHostProject = @"..\..\..\..\..\..\Product.CommandService";
-            var caminho = Path.Combine(testProjectPath, relativePathToHostProject);
-
-            var servidor = new TestServer(new WebHostBuilder()
-                .UseContentRoot(caminho)
-                .UseEnvironment("Development")
-                .UseStartup<Startup>());
-            _cliente = servidor.CreateClient();
+        public TaxaDeJurosControlllerTeste(SetupParaTesteDeIntegracao<Startup> setupParaTesteDeIntegracao)
+        { 
+            _cliente = setupParaTesteDeIntegracao.WebApplicationFactory.CreateClient();
         }
 
         [Fact]
