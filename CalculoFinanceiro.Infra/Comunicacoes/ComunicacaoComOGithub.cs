@@ -2,15 +2,23 @@
 using CalculoFinanceiro.Aplicacao.Dtos;
 using CalculoFinanceiro.Infra.HttpRequest;
 using System.Net.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace CalculoFinanceiro.Infra.Comunicacoes
 {
     public class ComunicacaoComOGithub : IComunicacaoComServicoDeRepositorios
     {
-        private static string UrlBase => "https://api.github.com/repos/";
+        private readonly IConfiguration _configuracao;
+
+        public ComunicacaoComOGithub(IConfiguration configuracao)
+        {
+            _configuracao = configuracao;
+        }
+
         public string ObterUrlDoRepositorio(string nomeDoUsuario, string nomeDoRepositorio)
         {
-            var url = UrlBase + nomeDoUsuario + "/" + nomeDoRepositorio;
+            var urlBase = _configuracao.GetSection("UrlDosServicoDeRepositorios:Github").Value;
+            var url = urlBase + nomeDoUsuario + "/" + nomeDoRepositorio;
             var respostaDaRequisicao = HttpRequestBuilder.CriarRequisicao(HttpMethod.Get).ComUrl(url)
                 .ComUserAgent(nomeDoUsuario).Enviar();
 
