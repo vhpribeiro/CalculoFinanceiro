@@ -11,7 +11,8 @@ namespace CalculoFinanceiro.Infra.Comunicacoes
         public string ObterUrlDoRepositorio(string nomeDoUsuario, string nomeDoRepositorio)
         {
             var url = UrlBase + nomeDoUsuario + "/" + nomeDoRepositorio;
-            var respostaDaRequisicao = HttpRequestBuilder.CriarRequisicao(HttpMethod.Get).ComUrl(url).ComUserAgent(nomeDoUsuario).Enviar();
+            var respostaDaRequisicao = HttpRequestBuilder.CriarRequisicao(HttpMethod.Get).ComUrl(url)
+                .ComUserAgent(nomeDoUsuario).Enviar();
 
             RepositorioDto repositorioDto;
             try

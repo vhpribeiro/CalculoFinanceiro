@@ -27,10 +27,10 @@ namespace CalculaFinanceiro.API.Controllers
 
         [HttpGet]
         [Route("showmethecode")]
-        public string ObterEnderecoDoRepositorio()
+        public IActionResult ObterEnderecoDoRepositorio()
         {
             var linkDoRepositorio = _consultaDeRepositorios.ObterLinkDoRepositorio();
-            return linkDoRepositorio;
+            return Ok(linkDoRepositorio);
         }
     }
 }

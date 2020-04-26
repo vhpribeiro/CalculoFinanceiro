@@ -25,7 +25,7 @@ namespace CalculoFinanceiro.Infra.HttpRequest
                 };
                 var json = resposta.Result.Content.ReadAsStringAsync();
                 json.Wait();
-                resultado = JsonConvert.DeserializeObject<T>(json.Result);
+                resultado = JsonConvert.DeserializeObject<T>(json.Result, configuracoesDoJson);
             }).Wait();
 
             if (!_respostaDaRequisicao.Result.IsSuccessStatusCode)
