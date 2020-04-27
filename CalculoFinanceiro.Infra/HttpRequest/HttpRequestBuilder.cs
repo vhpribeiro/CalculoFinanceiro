@@ -31,10 +31,10 @@ namespace CalculoFinanceiro.Infra.HttpRequest
             return _requisicao;
         }
 
-        public HttpResponseGetter Enviar()
+        public ObtencaoDeRespostaHttp Enviar()
         {
             var respostaDaRequisicao = HttpClient.SendAsync(_requisicao);
-            return new HttpResponseGetter(respostaDaRequisicao);
+            return new ObtencaoDeRespostaHttp(respostaDaRequisicao);
         }
     }
 }

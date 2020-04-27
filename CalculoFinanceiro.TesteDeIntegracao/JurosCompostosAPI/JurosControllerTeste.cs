@@ -41,7 +41,7 @@ namespace CalculoFinanceiro.TesteDeIntegracao.JurosCompostosAPI
 
             var resposta = _cliente.SendAsync(requisicao);
 
-            var resultadoObtido = new HttpResponseGetter(resposta).ObterRespostaComo<decimal>();
+            var resultadoObtido = new ObtencaoDeRespostaHttp(resposta).ObterRespostaComo<decimal>();
             Assert.Equal(HttpStatusCode.OK, resposta.Result.StatusCode);
             Assert.Equal(resultadoEsperado, resultadoObtido);
         }

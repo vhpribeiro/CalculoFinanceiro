@@ -27,7 +27,7 @@ namespace CalculoFinanceiro.TesteDeIntegracao.TaxaDeJuros
 
             var resposta = _cliente.SendAsync(requisicao);
 
-            var resultadoObtido = new HttpResponseGetter(resposta).ObterRespostaComo<double>();
+            var resultadoObtido = new ObtencaoDeRespostaHttp(resposta).ObterRespostaComo<double>();
             Assert.Equal(HttpStatusCode.OK, resposta.Result.StatusCode);
             Assert.Equal(resultadoEsperado, resultadoObtido);
         }

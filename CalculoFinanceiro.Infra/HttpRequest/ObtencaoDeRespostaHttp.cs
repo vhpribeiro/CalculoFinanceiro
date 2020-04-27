@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 
 namespace CalculoFinanceiro.Infra.HttpRequest
 {
-    public class HttpResponseGetter
+    public class ObtencaoDeRespostaHttp
     {
         private readonly Task<HttpResponseMessage> _respostaDaRequisicao;
-        public HttpResponseGetter(Task<HttpResponseMessage> respostaDaRequisicao)
+        public ObtencaoDeRespostaHttp(Task<HttpResponseMessage> respostaDaRequisicao)
         {
             _respostaDaRequisicao = respostaDaRequisicao;
         }
