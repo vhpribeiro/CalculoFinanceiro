@@ -6,7 +6,6 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
-      - API_URL=taxadejuros.api:8000
     ports:
       - "9000:80"
     volumes:

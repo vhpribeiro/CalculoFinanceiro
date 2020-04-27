@@ -6,7 +6,7 @@ namespace CalculoFinanceiro.TesteDeIntegracao
 {
     public class SetupParaTesteDeIntegracao<TStartup> : IDisposable where TStartup : class 
     {
-        private const string HostingEnvironment = "Integration";
+        private const string NomeDoAmbiente = "Integracao";
 
         private readonly WebApplicationFactory<TStartup> _servidor;
 
@@ -25,7 +25,7 @@ namespace CalculoFinanceiro.TesteDeIntegracao
         {
             return new WebApplicationFactory<TStartup>().WithWebHostBuilder(builder =>
                 {
-                    builder.UseEnvironment(HostingEnvironment);
+                    builder.UseEnvironment(NomeDoAmbiente);
                 });
         }
     }
