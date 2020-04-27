@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5E3CFD94-98B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apresentacao", "Apresentacao", "{5364F283-FCA2-41FD-BCFC-EFC07988D7AB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JurosCompostos.API", "CalculaFinanceiro.API\JurosCompostos.API.csproj", "{90C67566-A7CC-4BEC-B5FC-1F8CE5B47482}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JurosCompostos.API", "JurosCompostos.API\JurosCompostos.API.csproj", "{90C67566-A7CC-4BEC-B5FC-1F8CE5B47482}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aplicacao", "Aplicacao", "{C525FF8B-749A-4B33-B222-93A1324E121B}"
 EndProject
@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculoFinanceiro.Aplicacao
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes", "Testes", "{371EAE7F-CE10-46F5-A7EA-8787F4FA6F28}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculaFinanceiro.TestesDeUnidade", "CalculaFinanceiro.TestesDeUnidade\CalculaFinanceiro.TestesDeUnidade.csproj", "{D32E22A1-BB03-445B-A26C-BA5531184D23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculoFinanceiro.TestesDeUnidade", "CalculaFinanceiro.TestesDeUnidade\CalculoFinanceiro.TestesDeUnidade.csproj", "{D32E22A1-BB03-445B-A26C-BA5531184D23}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{2BA9C72F-FCD2-4B52-A888-F93CCDBBDBF5}"
 EndProject

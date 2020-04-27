@@ -4,7 +4,7 @@ services:
   juroscompostos.api:
     build:
       context: .
-      dockerfile: CalculaFinanceiro.API/Dockerfile
+      dockerfile: JurosCompostos.API/Dockerfile
 
   taxadejuros.api:
     build:

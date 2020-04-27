@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CalculaFinanceiro.API\JurosCompostos.API.csproj" />
+    <ProjectReference Include="..\JurosCompostos.API\JurosCompostos.API.csproj" />
     <ProjectReference Include="..\TaxaDeJuros.API\TaxaDeJuros.API.csproj" />
   </ItemGroup>
 

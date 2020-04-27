@@ -3,7 +3,7 @@ using CalculoFinanceiro.Aplicacao.Comunicacoes;
 using CalculoFinanceiro.Infra.Comunicacoes;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CalculaFinanceiro.API.ConfiguracaoDeInicializacao
+namespace JurosCompostos.API.ConfiguracaoDeInicializacao
 {
     public class ConfiguracaoDeInjecaoDeDependencia
     {

@@ -1,11 +1,11 @@
-using CalculaFinanceiro.API.ConfiguracaoDeInicializacao;
+using JurosCompostos.API.ConfiguracaoDeInicializacao;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace CalculaFinanceiro.API
+namespace JurosCompostos.API
 {
     public class Startup
     {
