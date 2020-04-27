@@ -33,7 +33,7 @@ namespace CalculoFinanceiro.TesteDeIntegracao.JurosCompostosAPI
 
         [Theory]
         [InlineData(100, 5, 105.1)]
-        public void Deve_calcular_o_valor_do_juros(decimal valorInicial, int meses, double resultadoEsperado)
+        public void Deve_calcular_o_valor_do_juros(decimal valorInicial, int meses, decimal resultadoEsperado)
         {
             var url = _urlBaseDoEndpoint + $"calculajuros?valorInicial={valorInicial}&meses={meses}";
             var requisicao = HttpRequestBuilder.CriarRequisicao(HttpMethod.Get)
@@ -41,7 +41,7 @@ namespace CalculoFinanceiro.TesteDeIntegracao.JurosCompostosAPI
 
             var resposta = _cliente.SendAsync(requisicao);
 
-            var resultadoObtido = new HttpResponseGetter(resposta).ObterRespostaComo<double>();
+            var resultadoObtido = new HttpResponseGetter(resposta).ObterRespostaComo<decimal>();
             Assert.Equal(HttpStatusCode.OK, resposta.Result.StatusCode);
             Assert.Equal(resultadoEsperado, resultadoObtido);
         }
