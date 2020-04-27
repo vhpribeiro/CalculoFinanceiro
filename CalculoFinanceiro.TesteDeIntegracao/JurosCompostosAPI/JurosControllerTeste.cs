@@ -10,17 +10,19 @@ namespace CalculoFinanceiro.TesteDeIntegracao.JurosCompostosAPI
     public class JurosControllerTeste : IClassFixture<SetupParaTesteDeIntegracao<Startup>>
     {
         private readonly HttpClient _cliente;
+        private readonly string _urlBaseDoEndpoint;
 
         public JurosControllerTeste(SetupParaTesteDeIntegracao<Startup> setupParaTesteDeIntegracao)
         {
             _cliente = setupParaTesteDeIntegracao.WebApplicationFactory.CreateClient();
+            _urlBaseDoEndpoint = "http://localhost:9000/juros/";
         }
 
         [Fact]
         public async Task Deve_conseguir_obter_link_do_repositorio()
         {
             const string resultadoEsperado = "https://github.com/vhpribeiro/CalculoFinanceiro";
-            const string url = "http://localhost:9000/juros/showmethecode";
+            var url = _urlBaseDoEndpoint + "showmethecode";
             
             var resposta = await _cliente.GetAsync(url);
 
@@ -33,7 +35,7 @@ namespace CalculoFinanceiro.TesteDeIntegracao.JurosCompostosAPI
         [InlineData(100, 5, 105.1)]
         public void Deve_calcular_o_valor_do_juros(decimal valorInicial, int meses, double resultadoEsperado)
         {
-            var url = $"http://localhost:9000/juros/calculajuros?valorInicial={valorInicial}&meses={meses}";
+            var url = _urlBaseDoEndpoint + $"calculajuros?valorInicial={valorInicial}&meses={meses}";
             var requisicao = HttpRequestBuilder.CriarRequisicao(HttpMethod.Get)
                 .ComUrl(url).Criar();
 
