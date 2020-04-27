@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace CalculaFinanceiro.API.ConfiguracaoDeInicializacao
+namespace JurosCompostos.API.ConfiguracaoDeInicializacao
 {
     public class ConfiguracaoDoSwagger
     {

@@ -13,9 +13,10 @@ namespace CalculoFinanceiro.Infra.Comunicacoes
         {
             _configuracao = configuracao;
         }
+
         public double ObterTaxaDeJuros()
         {
-            var urlBase = _configuracao.GetSection("TaxaJurosAPI:UrlDoEndpoint").Value;
+            var urlBase = _configuracao.GetSection("TaxaDeJurosAPI:UrlBaseDoEndpoint").Value;
             var url = urlBase + "/taxajuros";
             var respostaDaRequisicao = HttpRequestBuilder.CriarRequisicao(HttpMethod.Get).ComUrl(url).Enviar();
 

@@ -1,8 +1,8 @@
-﻿using CalculaFinanceiro.API;
-using CalculoFinanceiro.Infra.HttpRequest;
+﻿using JurosCompostos.API;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using CalculoFinanceiro.Infra.HttpRequest;
 using Xunit;
 
 namespace CalculoFinanceiro.TesteDeIntegracao.JurosCompostosAPI
@@ -33,9 +33,7 @@ namespace CalculoFinanceiro.TesteDeIntegracao.JurosCompostosAPI
 
         [Theory]
         [InlineData(100, 5, 105.1)]
-        [InlineData(125, 8, 135.35)]
-        [InlineData(148, 7, 158.67)]
-        public void Deve_calcular_o_valor_do_juros(decimal valorInicial, int meses, decimal resultadoEsperado)
+        public void Deve_calcular_o_valor_do_juros(decimal valorInicial, int meses, double resultadoEsperado)
         {
             var url = _urlBaseDoEndpoint + $"calculajuros?valorInicial={valorInicial}&meses={meses}";
             var requisicao = HttpRequestBuilder.CriarRequisicao(HttpMethod.Get)
@@ -43,7 +41,7 @@ namespace CalculoFinanceiro.TesteDeIntegracao.JurosCompostosAPI
 
             var resposta = _cliente.SendAsync(requisicao);
 
-            var resultadoObtido = new HttpResponseGetter(resposta).ObterRespostaComo<decimal>();
+            var resultadoObtido = new HttpResponseGetter(resposta).ObterRespostaComo<double>();
             Assert.Equal(HttpStatusCode.OK, resposta.Result.StatusCode);
             Assert.Equal(resultadoEsperado, resultadoObtido);
         }

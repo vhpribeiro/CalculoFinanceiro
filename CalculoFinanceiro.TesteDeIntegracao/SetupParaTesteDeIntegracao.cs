@@ -14,7 +14,7 @@ namespace CalculoFinanceiro.TesteDeIntegracao
 
         public SetupParaTesteDeIntegracao()
         {
-            _servidor = new WebApplicationFactory<TStartup>();
+            _servidor = ConfigureWebApplicationFactory();
         }
         public void Dispose()
         {

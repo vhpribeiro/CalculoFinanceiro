@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  juroscompostos.api:
+    build:
+      context: .
+      dockerfile: JurosCompostos.API/Dockerfile
+
+  taxadejuros.api:
+    build:
+      context: .
+      dockerfile: TaxaDeJuros.API/Dockerfile
+

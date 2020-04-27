@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+  juroscompostos.api:
+    container_name: "juroscompostos"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - API_URL=taxadejuros.api:8000
+    ports:
+      - "9000:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    networks: 
+      - minha-rede
+  taxadejuros.api:
+    container_name: "taxadejuros"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "8000:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    networks:
+      - minha-rede 
+networks: 
+  minha-rede:
+    external: true
