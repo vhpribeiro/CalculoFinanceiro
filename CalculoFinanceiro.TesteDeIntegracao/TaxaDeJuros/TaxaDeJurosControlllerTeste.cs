@@ -1,6 +1,7 @@
-﻿using CalculoFinanceiro.Infra.HttpRequest;
+﻿using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using TaxaDeJuros.API;
 using Xunit;
 
@@ -18,17 +19,16 @@ namespace CalculoFinanceiro.TesteDeIntegracao.TaxaDeJuros
         }
 
         [Fact]
-        public void Deve_conseguir_obter_o_valor_da_taxa_de_juros()
+        public async Task Deve_conseguir_obter_o_valor_da_taxa_de_juros()
         {
             var url = _urlBaseDoEndpoint + "taxajuros";
             const double resultadoEsperado = 0.01;
-            var requisicao = HttpRequestBuilder.CriarRequisicao(HttpMethod.Get)
-                .ComUrl(url).Criar();
 
-            var resposta = _cliente.SendAsync(requisicao);
+            var resposta = await _cliente.GetAsync(url);
 
-            var resultadoObtido = new ObtencaoDeRespostaHttp(resposta).ObterRespostaComo<double>();
-            Assert.Equal(HttpStatusCode.OK, resposta.Result.StatusCode);
+            var resultadoObtidoEmString = await resposta.Content.ReadAsStringAsync();
+            var resultadoObtido = JsonConvert.DeserializeObject<double>(resultadoObtidoEmString);
+            Assert.Equal(HttpStatusCode.OK, resposta.StatusCode);
             Assert.Equal(resultadoEsperado, resultadoObtido);
         }
     }

@@ -1,8 +1,8 @@
 ﻿using JurosCompostos.API;
+using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using CalculoFinanceiro.Infra.HttpRequest;
 using Xunit;
 
 namespace CalculoFinanceiro.TesteDeIntegracao.JurosCompostosAPI
@@ -33,16 +33,17 @@ namespace CalculoFinanceiro.TesteDeIntegracao.JurosCompostosAPI
 
         [Theory]
         [InlineData(100, 5, 105.1)]
-        public void Deve_calcular_o_valor_do_juros(decimal valorInicial, int meses, decimal resultadoEsperado)
+        [InlineData(108, 9, 118.11)]
+        [InlineData(300, 2, 306.02)]
+        public async Task Deve_calcular_o_valor_do_juros(decimal valorInicial, int meses, decimal resultadoEsperado)
         {
             var url = _urlBaseDoEndpoint + $"calculajuros?valorInicial={valorInicial}&meses={meses}";
-            var requisicao = HttpRequestBuilder.CriarRequisicao(HttpMethod.Get)
-                .ComUrl(url).Criar();
 
-            var resposta = _cliente.SendAsync(requisicao);
+            var resposta = await _cliente.GetAsync(url);
 
-            var resultadoObtido = new ObtencaoDeRespostaHttp(resposta).ObterRespostaComo<decimal>();
-            Assert.Equal(HttpStatusCode.OK, resposta.Result.StatusCode);
+            var resultadoObtidoEmString = await resposta.Content.ReadAsStringAsync();
+            var resultadoObtido = JsonConvert.DeserializeObject<decimal>(resultadoObtidoEmString);
+            Assert.Equal(HttpStatusCode.OK, resposta.StatusCode);
             Assert.Equal(resultadoEsperado, resultadoObtido);
         }
     }
