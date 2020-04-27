@@ -1,15 +1,23 @@
 ﻿using CalculoFinanceiro.Aplicacao.Comunicacoes;
 using CalculoFinanceiro.Infra.HttpRequest;
 using System.Net.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace CalculoFinanceiro.Infra.Comunicacoes
 {
     public class ComunicacaoComServicoDeTaxaDeJuros : IComunicacaoComServicoDeTaxaDeJuros
     {
-        private static string UrlBase => "http://taxadejuros/taxadejuros";
+        private readonly IConfiguration _configuracao;
+
+        public ComunicacaoComServicoDeTaxaDeJuros(IConfiguration configuracao)
+        {
+            _configuracao = configuracao;
+        }
+
         public double ObterTaxaDeJuros()
         {
-            var url = UrlBase + "/taxajuros";
+            var urlBase = _configuracao.GetSection("TaxaDeJurosAPI:UrlBaseDoEndpoint").Value;
+            var url = urlBase + "/taxajuros";
             var respostaDaRequisicao = HttpRequestBuilder.CriarRequisicao(HttpMethod.Get).ComUrl(url).Enviar();
 
             double taxaDeJuros;

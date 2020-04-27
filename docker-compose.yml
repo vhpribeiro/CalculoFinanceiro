@@ -2,13 +2,11 @@ version: '3.4'
 
 services:
   juroscompostos.api:
-    image: ${DOCKER_REGISTRY-}juroscompostosapi
     build:
       context: .
       dockerfile: CalculaFinanceiro.API/Dockerfile
 
   taxadejuros.api:
-    image: ${DOCKER_REGISTRY-}taxadejurosapi
     build:
       context: .
       dockerfile: TaxaDeJuros.API/Dockerfile
